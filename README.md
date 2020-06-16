@@ -13,6 +13,7 @@ The implementation of the two meta-learning approaches used for the comparison w
 
 To use one of the available monitoring models, you can run the corresponding python script, specifying the path of the needed files.
 Example for LSTM model:
+
 `python lstm.py --observations=<OBSERVATIONS_PATH> --true_values=<TRUE_VALUES_PATH> --forecasts=<FORECASTS_PATH>`
 
 Parameters:
@@ -22,6 +23,7 @@ Parameters:
 - `FORECASTS_PATH`: path of csv file containing the forecasts
 
 To perform dynamic model selection, you can run the script `dynamic_model_selection.py`, specifying the path of the needed files:
+
 `python dynamic_model_selection.py --observations=<OBSERVATIONS_PATH> --true_values=<TRUE_VALUES_PATH> --forecasts_folder=<FORECASTS_FOLDER>`
 
 Parameters:
