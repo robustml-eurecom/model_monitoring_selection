@@ -9,6 +9,14 @@ import GPy
 from scipy.cluster.vq import kmeans
 from sklearn.metrics import mean_absolute_error
 from sklearn import preprocessing
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--observations', default=None)
+parser.add_argument("--true_values", default=None)
+parser.add_argument("--forecasts", default=None)
+
+args = parser.parse_args()
 
 seed(42)
 set_random_seed(42)
@@ -26,15 +34,15 @@ def smape(a, b):
     return np.mean(2.0 * np.abs(a - b) / (np.abs(a) + np.abs(b))).item()
 
 # Observations
-df_series = pd.read_csv('./M4-train/Yearly-train.csv')
+df_series = pd.read_csv(args.observations)
 df_series = df_series.drop(['V1'],axis=1)
 
 # True forecasts
-df_obs = pd.read_csv('./M4-test/Yearly-test.csv')
+df_obs = pd.read_csv(args.true_values)
 df_obs = df_obs.drop(['V1'],axis=1)
 
 # Forecats given by comb monitored model
-df_preds = pd.read_csv('comb-preds-yearly.csv')
+df_preds = pd.read_csv(args.forecasts)
 df_preds = df_preds.drop(['Unnamed: 0'],axis=1).T
 df_preds.index = df_obs.index
 

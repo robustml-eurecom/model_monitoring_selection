@@ -20,6 +20,15 @@ from keras import optimizers
 from sklearn.metrics import mean_absolute_error
 from sklearn import preprocessing
 import matplotlib.pyplot as plt
+impor os
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--observations', default=None)
+parser.add_argument("--true_values", default=None)
+parser.add_argument('--forecasts_folder', default=None)
+
+args = parser.parse_args()
 
 seed(42)
 set_random_seed(42)
@@ -36,9 +45,7 @@ def smape(a, b):
     b = np.reshape(b, (-1,))
     return np.mean(2.0 * np.abs(a - b) / (np.abs(a) + np.abs(b))).item()
 
-dataset = 'flights'
-
-df_series = pd.read_csv('df_series_'+dataset+'_new.csv')
+df_series = pd.read_csv(args.observations)
 df_series = df_series.drop(['Unnamed: 0'],axis=1)
 
 fh = 90
@@ -108,16 +115,12 @@ for j in range(len(steps)-1):
     for m in models:
 
         print(m)
-
-        if m != 'rf':
-            filename = 'preds-'+m+'-'+dataset+'_newr.npy' 
-            preds = np.load(filename)       
-            preds_h = preds[:,b:e]
-            df_preds = pd.DataFrame(preds_h)
-        else:
-            df_preds = pd.read_csv('df-preds-rf-'+dataset+'_new_r.csv')
-            df_preds = df_preds.drop(['Unnamed: 0'],axis=1)
-            df_preds = df_preds.iloc[:,b:e]
+        
+        filename = 'forecasts_'+m
+        
+        df_preds = pd.read_csv(os.path.join(args.forecasts_folder,filename))
+        df_preds = df_preds.drop(['Unnamed: 0'],axis=1)
+        df_preds = df_preds.iloc[:,b:e]
             
         df_all = pd.concat([df_obs,df_preds],axis=1,join='inner')
         
@@ -213,3 +216,4 @@ for j in range(len(steps)-1):
         min_model_df = pd.concat([min_model_df,min_model_col],axis=1)
 
 min_model_df.columns = steps[1:]
+
