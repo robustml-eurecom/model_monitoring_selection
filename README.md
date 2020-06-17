@@ -32,4 +32,17 @@ Parameters:
 - `TRUE_VALUES_PATH`: path of csv file containing the true_values
 - `FORECASTS_FOLDER`: path of the folder containing the csv files of forecasts
 
+## Citation
+
+Please cite it as follows:
+
+`@misc{c2020model,
+    title={Model Monitoring and Dynamic Model Selection in Travel Time-series Forecasting},
+    author={Rosa Candela and Pietro Michiardi and Maurizio Filippone and Maria A. Zuluaga},
+    year={2020},
+    eprint={2003.07268},
+    archivePrefix={arXiv},
+    primaryClass={stat.AP}
+}`
+
 
