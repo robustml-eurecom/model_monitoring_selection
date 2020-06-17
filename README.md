@@ -11,6 +11,12 @@ The implementation of the two meta-learning approaches used for the comparison w
 
 ## Getting started
 
+### Requirements
+
+- Tensorflow
+- Keras
+- [GPy](https://github.com/SheffieldML/GPy)
+
 To use one of the available monitoring models, you can run the corresponding python script, specifying the path of the needed files.
 Example for LSTM model:
 
