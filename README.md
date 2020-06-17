@@ -36,13 +36,15 @@ Parameters:
 
 Please cite it as follows:
 
-    @misc{c2020model,
-        title={Model Monitoring and Dynamic Model Selection in Travel Time-series Forecasting}, 
-        author={Rosa Candela and Pietro Michiardi and Maurizio Filippone and Maria A. Zuluaga},
-        year={2020},    
-        eprint={2003.07268},    
-        archivePrefix={arXiv},    
-        primaryClass={stat.AP}
+    @inproceedings{c2020model,
+        year =        {2020},
+        title =       {{M}odel monitoring and dynamic model selection in travel time-series forecasting},
+        author =      {{C}andela, {R}osa and  {M}ichiardi, {P}ietro and  {F}ilippone, {M}aurizio and  {Z}uluaga, {M}aria {A}},
+        booktitle =   {{ECML}-{PKDD} 2020, {T}he {E}uropean {C}onference on {M}achine {L}earning and {P}rinciples and {P}ractice of                           {K}nowledge {D}iscovery in {D}atabases, 14-18 {S}eptember 2020, {G}hent, {B}elgium},
+        address =     {{G}hent, {BELGIUM}},
+        month =       {09},
+        url =         {https://arxiv.org/abs/2003.07268}
     }
+
     
 
