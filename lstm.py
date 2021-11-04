@@ -115,7 +115,7 @@ data_all = df_all.values
 smape_arr = np.log(smape_arr)
 
 test_percentage = 0.25
-total = X_mat.shape[0]
+total = df_all.shape[0]
 train_samples = int(np.ceil(total) * (1-test_percentage))
 test_samples = total - train_samples
 
